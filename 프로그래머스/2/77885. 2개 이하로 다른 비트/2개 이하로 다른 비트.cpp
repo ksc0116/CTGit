@@ -24,7 +24,7 @@ vector<long long> solution(vector<long long> numbers)
 		}
 		
 		numbers[i] |= (1LL << j);
-		long long tmp2 = (1L << (j - 1));
+		long long tmp2 = (1LL << (j - 1));
 		numbers[i] -= tmp2;
 		answer.push_back(numbers[i]);
 	}
