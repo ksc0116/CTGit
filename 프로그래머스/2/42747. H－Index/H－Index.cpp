@@ -23,24 +23,15 @@ int solution(vector<int> citations)
     int left = 0;
     int right = 10000;
     
-    // 111
-    // 10
-    // 11111100000
-    // 100
-    
     while(left < right)
     {
-        int mid = (left + right) / 2;
+        int mid = (left + right + 1) / 2; 
         
-        if(Check(citations, mid))
-        {
-            left = mid + 1;
-        }
+        if (Check(citations,mid)) 
+            left = mid;
         else
-        {
-            right = mid;
-        }
+            right = mid - 1;
     }
     
-    return left - 1;
+    return left;
 }
