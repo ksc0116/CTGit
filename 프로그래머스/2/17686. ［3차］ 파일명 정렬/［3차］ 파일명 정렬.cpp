@@ -13,45 +13,15 @@ void Check(const string& str, string& head, string& number)
 
 	for (int i = 0; i < str.size(); ++i)
 	{
-		if (isChar)
+		if (!isdigit(str[i]))
 		{
-			if (!isdigit(str[i]))
-			{
-				head += string(1, str[i]);
-			}
-
-			if (i + 1 < str.size() && isdigit(str[i + 1]))
-			{
-				isChar = false;
-			}
+			head += string(1, str[i]);
 		}
-		else
+
+		if (i + 1 < str.size() && isdigit(str[i + 1]))
 		{
-			if (isZero)
-			{
-				if (isdigit(str[i]))
-				{
-					if (str[i] != '0')
-					{
-						isZero = false;
-						number += string(1, str[i]);
-					}
-
-					if (i + 1 >= str.size() || !isdigit(str[i + 1]))
-					{
-						break;
-					}
-				}
-			}
-			else
-			{
-				number += string(1, str[i]);
-
-				if (i + 1 >= str.size() || !isdigit(str[i + 1]))
-				{
-					break;
-				}
-			}
+			number = str.substr(i + 1);
+			break;
 		}
 	}
 }
@@ -82,11 +52,6 @@ vector<string> solution(vector<string> files)
 		string head = "";
 		string number = "";
 		Check(um[files[i]], head, number);
-
-		if (number.empty())
-		{
-			number += "0";
-		}
 
 		if (info.find({ head,stoi(number) }) == info.end())
 		{
