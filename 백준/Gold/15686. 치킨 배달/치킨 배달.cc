@@ -30,14 +30,14 @@ int CheckMin(const vector<pair<int, int>>& select)
 
 void GetComb(int index, const vector<pair<int, int>>& info, int r, vector<pair<int, int>>& select)
 {
+	if (select.size() > r)
+		return;
+
 	if (select.size() == r)
 	{
 		answer = min(answer, CheckMin(select));
 	}
 	
-	if (index == info.size())
-		return;
-
 	for (int i = index; i < info.size(); ++i)
 	{
 		select.push_back(info[i]);
