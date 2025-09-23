@@ -8,7 +8,7 @@
 #include <limits.h>
 using namespace std;
 
-// 시간 복잡도 : cnt * NlogN
+// 시간 복잡도 : N
 
 void DFS(const vector<vector<pair<int,int>>>& graph, vector<int>& dist, int curV, int weight)
 {
